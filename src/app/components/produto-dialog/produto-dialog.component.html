@@ -1,0 +1,15 @@
+<div class="example-container">
+  <h4>Insira um novo produto</h4>
+
+  <mat-form-field [floatLabel]="options.value.floatLabel">
+    <input matInput placeholder="Nome do Produto" required [(ngModel)]="model.nome" name="_nome">
+  </mat-form-field>
+
+  <mat-checkbox [(ngModel)]="model.ativo" name="_ativo">Ativo</mat-checkbox>
+
+  <div class="flex pt-12">
+    <div class="flex-1"></div>
+    <button mat-raised-button mat-dialog-close class="mr-12">Fechar</button>
+    <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+  </div>
+</div>

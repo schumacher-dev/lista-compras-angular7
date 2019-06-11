@@ -1,0 +1,51 @@
+<div class="container flex pl-12 pr-12" *ngIf="lista">
+
+  <div class="flex-1 mr-12">
+    <h4>Produtos para adicionar</h4>
+
+    <mat-toolbar>
+      <button mat-raised-button color="primary" class="mr-12" (click)="save()">Salvar</button>
+      <button mat-raised-button (click)="newProduto()">Novo Produto</button>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <mat-list-item *ngFor="let prod of produtos">
+        <a matLine>{{ prod.nome }}</a>
+        <button mat-icon-button class="mr-8" (click)="rmProduto(prod)">
+          <fa-icon [icon]="icons.faTrash"></fa-icon>
+        </button>
+        <button mat-icon-button class="mr-8" (click)="editProduto(prod)">
+          <fa-icon [icon]="icons.faEdit"></fa-icon>
+        </button>
+        <button mat-icon-button (click)="addProduto(prod)">
+          <fa-icon [icon]="icons.faPlus"></fa-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+
+  <div class="flex-1">
+    <h4>Produtos adicionados em: {{ lista?.nome }}</h4>
+
+    <mat-toolbar>
+      <button mat-raised-button (click)="clearLista()">Limpar {{lista?.nome}}</button>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <mat-list-item *ngFor="let lprod of lista.items | orderBy:['comprado']">
+        <div matLine>
+          <a [ngClass]="{ 'sublinhado': lprod.comprado }">{{ lprod.nome }}</a> <br>
+          <small class="text-muted">{{ lprod.createdAt | date }}</small>
+        </div>
+
+        <mat-checkbox class="mr-12" [(ngModel)]="lprod.comprado"></mat-checkbox>
+        <button mat-icon-button (click)="rmProdudoLista(lprod)">
+          <fa-icon [icon]="icons.faMinus"></fa-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </div>
+</div>

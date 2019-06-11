@@ -1,0 +1,30 @@
+<div class="container p-12">
+    <mat-toolbar>
+        <button mat-raised-button color="primary" class="mr-12" (click)="newLista()">Nova Lista</button>
+    </mat-toolbar>
+
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="6" rowHeight="150px">
+        <mat-grid-tile *ngFor="let item of listas" [colspan]="'2'">
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{item.nome}}</mat-card-title>
+                    <mat-card-subtitle>
+                        {{item.createdAt | date}}
+                        <mat-progress-bar mode="determinate" value="{{((item.comprados * 100)/item.produtos)}}"></mat-progress-bar>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                    <button mat-button color="accent" (click)="rmLista(item)">
+                        <fa-icon [icon]="icons.faTrash"></fa-icon> REMOVER
+                    </button>
+                    <button mat-button color="primary" routerLink="/lista/{{item.id}}">
+                        <fa-icon [icon]="icons.faEdit"></fa-icon> EDITAR
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
