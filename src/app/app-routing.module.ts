@@ -2,10 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListaComponent } from './components/lista/lista.component';
 import { ListaActionComponent } from './components/lista-action/lista-action.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {  
     path: 'home', 
+    component: HomeComponent
+  },
+  {  
+    path: 'lista', 
     component: ListaComponent
   },
   {  

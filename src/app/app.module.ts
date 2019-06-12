@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProdutoDialogComponent } from './components/produto-dialog/produto-dialog.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ListaDialogComponent } from './components/lista-dialog/lista-dialog.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListaDialogComponent } from './components/lista-dialog/lista-dialog.com
     ListaActionComponent,
     ProdutoDialogComponent,
     ListaDialogComponent,
-    OrderByPipe
+    OrderByPipe,
+    HomeComponent
   ],
   imports: [
     /** Angular Modules */
